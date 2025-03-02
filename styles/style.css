@@ -15,4 +15,29 @@
   font-variation-settings: 'wght' var(--card-text-weight);
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  margin: auto;
+}
+
+header {
+  font-family: var(--accent-font);
+  font-weight: var(--card-text-weight);
+  text-transform: uppercase;
+}
+
+.header-width {
+  width: clamp(23.438rem, 24.2859rem + 30.5157vw, 43.75rem);
+}
+
+.header-title {
+ font-size: clamp(49px, calc(49px + 16 * ((100vw - 375px) / 325)), 65px);
+}
+
+.header-subtitle {
+ font-size: clamp(14px, calc(14px + 9 * ((100vw - 375px) / 325)), 23px);
+}
+
+@media (width<=375) {
+  .header-width { 
+  width: 100%;
+  }
 }

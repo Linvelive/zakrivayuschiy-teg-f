@@ -16,12 +16,23 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   margin: auto;
+  background-image: var(--gradient-background);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.floppy{
+display: none;
 }
 
-header {
+.header {
   font-family: var(--accent-font);
   font-weight: var(--card-text-weight);
   text-transform: uppercase;
+  padding-block: clamp(100px, calc(100px + 2 * ((100vw - 375px) / 325)), 102px);
+  padding-inline: clamp(14px, calc(32.77vw - 108.88px), 120.5px);
+  background-color: #fff;
+  margin: auto 50%;
+  
 }
 
 .header-width {
@@ -34,6 +45,7 @@ header {
 
 .header-subtitle {
  font-size: clamp(14px, calc(14px + 9 * ((100vw - 375px) / 325)), 23px);
+ margin-top: 20px;
 }
 
 @media (width<=375) {

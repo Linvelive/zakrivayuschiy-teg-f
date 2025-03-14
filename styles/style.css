@@ -69,8 +69,7 @@
 }
 
 .filter-multiply {
-  filter: saturate(180%);
-  filter: sepia(50%);
+  filter: saturate(180%) sepia(50%);
 }
 
 .filter-saturate {
@@ -79,6 +78,18 @@
 
 .filter-gray {
   filter: grayscale(0.9);
+}
+
+.filter-blur {
+  filter: blur(5px);
+}
+
+.filter-contrast {
+  filter: contrast(200%);
+}
+
+.filter-brightness {
+  filter: brightness(15%);
 }
 
 .cards {
@@ -196,7 +207,6 @@ border: 2px solid #000;
   color: black; 
   transition: color 0.5s ease-in-out;
   z-index: 0; 
-  
 }
 
 .button:focus-visible,
@@ -272,34 +282,48 @@ border: 2px solid #000;
   margin: 30px;
 }
 
+@supports (-webkit-text-stroke: 1px #fff) {
+  .watermark {
+    -webkit-text-stroke: 1px #fff;
+  }
+}
+
+
+@supports not (-webkit-text-stroke: 1px #fff) {
+  .watermark {
+    text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    color: #000; 
+  }
+}
+
 
 @media (max-width: 375px) {
   .page {
-    width: 100%; /* Полная ширина */
-    max-width: 375px; /* Ограничение до 375px */
-    overflow-x: hidden; /* Убираем горизонтальный скролл */
+    width: 100%; 
+    max-width: 375px; 
+    overflow-x: hidden;
   }
 
   .articles {
-    padding: 0 5px; /* Уменьшаем отступы */
-    max-width: 375px; /* Ограничение */
+    padding: 0 5px; 
+    max-width: 375px; 
   }
 
   .header {
-    max-width: 375px; /* Не больше 375px */
+    max-width: 375px;
     overflow-x: hidden;
   }
 
   .cards {
-    width: 100%; /* Полная ширина */
-    max-width: 100%; /* Не превышает 375px */
+    width: 100%; 
+    max-width: 100%; 
     border: 2px solid #000;
   }
 
   .cards-image {
     width: 100%;
     max-width: 100%;
-    overflow: hidden; /* Обрезаем лишнее */
+    overflow: hidden;
   }
 
   .cards-image img {
@@ -310,11 +334,11 @@ border: 2px solid #000;
 
   .watermark,
   .watermark-lowcase {
-    right: 10px; /* Уменьшаем отступ справа, чтобы не выходило за границы */
-    font-size: 12px; /* Уменьшаем размер текста */
+    right: 10px; 
+    font-size: 12px; 
   }
 
   .save-button {
-    margin-block-end: 50px; /* Уменьшаем нижний отступ */
+    margin-block-end: 50px; 
   }
 }

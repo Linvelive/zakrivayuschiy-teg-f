@@ -4,6 +4,9 @@
     --accent-font: 'PressStart2P-Regular', cursive;
     --card-text-weight: 400;
     --card-header-weight: 700;
+    --main-color:#000;
+    --contour-color: black;
+    --sparks-color: #ff0000;
     --gradient-background: repeating-linear-gradient(
       90deg,
       #d3d3d3 0,

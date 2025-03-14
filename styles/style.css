@@ -11,45 +11,309 @@
 */
 
 .page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' var(--card-text-weight);
+  font-variation-settings: "wght" var(--card-text-weight);
   min-inline-size: 320px;
-  min-block-size: 100dvb;
+  min-block-size: 100dvh;
+  width: 100%;
+  max-width: 100%;
   margin: auto;
   background-image: var(--gradient-background);
   background-size: cover;
   background-attachment: fixed;
+  /* gap: 50px; */
+  overflow-x: hidden;
 }
-.floppy{
-display: none;
+
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   font-family: var(--accent-font);
   font-weight: var(--card-text-weight);
   text-transform: uppercase;
-  padding-block: clamp(100px, calc(100px + 2 * ((100vw - 375px) / 325)), 102px);
-  padding-inline: clamp(14px, calc(32.77vw - 108.88px), 120.5px);
   background-color: #fff;
-  margin: auto 50%;
-  
-}
-
-.header-width {
-  width: clamp(23.438rem, 24.2859rem + 30.5157vw, 43.75rem);
+  margin: 100px auto;
+  border: 2px solid var(--main-color);
+  /* send to variables */
+  padding-block: clamp(6.25rem, 5.6338rem + 2.6291vw, 8rem);
+  width: clamp(375px, 375px + 0.305 * (100vw - 375px), 700px);
+  height: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
 }
 
 .header-title {
- font-size: clamp(49px, calc(49px + 16 * ((100vw - 375px) / 325)), 65px);
+  font-size: clamp(49px, calc(49px + 16 * ((100vw - 375px) / 325)), 65px);
 }
 
 .header-subtitle {
- font-size: clamp(14px, calc(14px + 9 * ((100vw - 375px) / 325)), 23px);
- margin-top: 20px;
+  font-size: clamp(14px, calc(14px + 9 * ((100vw - 375px) / 325)), 23px);
+  margin-top: 20px;
 }
 
-@media (width<=375) {
-  .header-width { 
+.filter-invert {
+  filter: invert(0.7);
+}
+
+.filter-sepia {
+  filter: sepia(80%);
+}
+
+.filter-multiply {
+  filter: saturate(180%);
+  filter: sepia(50%);
+}
+
+.filter-saturate {
+  filter: saturate(180%);
+}
+
+.filter-gray {
+  filter: grayscale(0.9);
+}
+
+.cards {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
+  /* height: clamp(47.5rem, 43.1206rem + 18.6854vw, 59.9375rem); */
+  height: fit-content;
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.watermark {
+  -webkit-text-stroke: 1px #fff;
+  position: absolute;
+  font-family: var(--accent-font);
+  text-transform: uppercase;
+  color: #000;
+  font-size: 14px;
+  mix-blend-mode: hard-light;
+  opacity: 50%;
+  top: 59px;
+  right: 25px;
+}
+
+.watermark-lowcase {
+  -webkit-text-stroke: 1px #fff;
+  position: absolute;
+  font-family: var(--accent-font);
+  text-transform: lowercase;
+  color: #000;
+  font-size: 14px;
+  mix-blend-mode: hard-light;
+  opacity: 50%;
+  top: 59px;
+  right: 25px;
+}
+
+.cards-title {
+  font-size: 12px;
+  align-self: start;
+  padding: 5px 10px;
+}
+
+.button__text {
+  font-family: var(--accent-font);
+  font-size: 14px;
+}
+
+.cards-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  padding: 23px 25px 18px 25px;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.4px;
+}
+
+.buttons {
+  position: relative;
+  display: flex;
+  align-self: flex-end;
+  padding-right: 25px;
+  padding-top: 6px;
+  margin-bottom: 25px;
+  gap: 7px;
+  z-index: 1;
+}
+
+.card__icon-button{
+  background-color: transparent;
+  border: none;
+  width: 39px;
+  height: 36px;
+  padding: 0;
+  align-self: center;
+  cursor: pointer;
+}
+
+.save-button {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-self: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  padding: 18.5px 18.5px 21px 19px;
+  margin-block-start: 50px;
+  block-size: 55px;
+  gap: 10px;
+  cursor: pointer;
+  margin-block-end: 103px;
+}
+
+.card__icon-button:focus-visible,
+.like-icon:focus {
+outline: none;
+border: 2px solid #000;
+}
+
+.button {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  border: 2px solid #000;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  padding: 10px 35px;
+  cursor: pointer;
+  justify-content: center;
+  overflow: hidden;
+  color: black; 
+  transition: color 0.5s ease-in-out;
+  z-index: 0; 
+}
+
+.button:focus-visible,
+.button:focus {
+  outline: none;
+  box-shadow: 2px 2px #000;
+  transition: box-shadow 0.3s ease;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
   width: 100%;
+  height: 100%;
+  background-color: black; 
+  transition: left 0.5s ease-in-out;
+  z-index: -1; 
+}
+
+.button:hover::before {
+  left: 0;
+}
+
+.button:hover {
+  color: white; 
+}
+
+
+.floppy-button {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  fill: #000;
+  z-index: 2;
+}
+
+.dialog {
+  max-height: 191px;
+}
+
+.dialog-content {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  padding: 14px 14px 0 14px;
+  align-items: center;
+}
+
+.dialog-floppy {
+  position: relative;
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+  fill: #000;
+  z-index: 2;
+}
+
+.dialog__text {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 21px;
+  align-self: center;
+}
+
+.dialog-button {
+  width: clamp(16.0625rem, 15.2702rem + 3.3803vw, 18.3125rem);
+  height: 38px;
+  margin: 30px;
+}
+
+
+@media (max-width: 375px) {
+  .page {
+    width: 100%; /* Полная ширина */
+    max-width: 375px; /* Ограничение до 375px */
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
+  }
+
+  .articles {
+    padding: 0 5px; /* Уменьшаем отступы */
+    max-width: 375px; /* Ограничение */
+  }
+
+  .header {
+    max-width: 375px; /* Не больше 375px */
+    overflow-x: hidden;
+  }
+
+  .cards {
+    width: 100%; /* Полная ширина */
+    max-width: 100%; /* Не превышает 375px */
+    border: 2px solid #000;
+  }
+
+  .cards-image {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden; /* Обрезаем лишнее */
+  }
+
+  .cards-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .watermark,
+  .watermark-lowcase {
+    right: 10px; /* Уменьшаем отступ справа, чтобы не выходило за границы */
+    font-size: 12px; /* Уменьшаем размер текста */
+  }
+
+  .save-button {
+    margin-block-end: 50px; /* Уменьшаем нижний отступ */
   }
 }

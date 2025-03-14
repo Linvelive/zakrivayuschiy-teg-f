@@ -69,7 +69,7 @@
 }
 
 .filter-multiply {
-  filter: saturate(180%) sepia(50%);
+  filter: blur(2px) brightness(120%) saturate(150%) sepia(30%);
 }
 
 .filter-saturate {

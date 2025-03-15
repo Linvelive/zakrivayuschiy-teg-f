@@ -25,8 +25,6 @@
   background-image: var(--gradient-background);
   background-size: cover;
   background-attachment: fixed;
-  /* gap: 50px; */
-  overflow-x: hidden;
 }
 
 .articles {
@@ -48,7 +46,6 @@
   /* send to variables */
   padding-block: clamp(6.25rem, 5.6338rem + 2.6291vw, 8rem);
   width: clamp(375px, 375px + 0.305 * (100vw - 375px), 700px);
-  height: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
 }
 
 .header-title {
@@ -105,23 +102,9 @@
 }
 
 .watermark {
-  -webkit-text-stroke: 1px #fff;
+  text-shadow: 1px #fff;
   position: absolute;
   font-family: var(--accent-font);
-  text-transform: uppercase;
-  color: #000;
-  font-size: 14px;
-  mix-blend-mode: hard-light;
-  opacity: 50%;
-  top: 59px;
-  right: 25px;
-}
-
-.watermark-lowcase {
-  -webkit-text-stroke: 1px #fff;
-  position: absolute;
-  font-family: var(--accent-font);
-  text-transform: lowercase;
   color: #000;
   font-size: 14px;
   mix-blend-mode: hard-light;
@@ -205,7 +188,7 @@ border: 2px solid #000;
   justify-content: center;
   overflow: hidden;
   color: black; 
-  transition: color 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   z-index: 0; 
 }
 
@@ -213,7 +196,6 @@ border: 2px solid #000;
 .button:focus {
   outline: none;
   box-shadow: 2px 2px #000;
-  transition: box-shadow 0.3s ease;
 }
 
 .button::before {
@@ -246,10 +228,6 @@ border: 2px solid #000;
   z-index: 2;
 }
 
-.dialog {
-  max-height: 191px;
-}
-
 .dialog-content {
   display: flex;
   gap: 20px;
@@ -274,12 +252,13 @@ border: 2px solid #000;
   text-transform: uppercase;
   line-height: 21px;
   align-self: center;
+  max-width: 234px;
 }
 
 .dialog-button {
   width: clamp(16.0625rem, 15.2702rem + 3.3803vw, 18.3125rem);
   height: 38px;
-  margin: 30px;
+  margin: 30px 16px 16px 16px;
 }
 
 @supports (-webkit-text-stroke: 1px #fff) {
@@ -300,8 +279,7 @@ border: 2px solid #000;
 @media (max-width: 375px) {
   .page {
     width: 100%; 
-    max-width: 375px; 
-    overflow-x: hidden;
+    max-width: 375px;
   }
 
   .articles {
@@ -311,7 +289,6 @@ border: 2px solid #000;
 
   .header {
     max-width: 375px;
-    overflow-x: hidden;
   }
 
   .cards {

@@ -329,7 +329,7 @@ outline: 2px solid #000;
 @media (width<=768px) {
   .page {
     width: 100%;
-    max-width: 100:;
+    max-width: 100;
   }
 
   .header {

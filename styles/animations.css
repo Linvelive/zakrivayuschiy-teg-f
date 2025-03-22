@@ -28,22 +28,22 @@
     transition: fill 0.3s linear;
   }
   
-  .like-icon:hover .core{
+  .like-icon:hover .core {
     fill: black;
     transition: fill 0.3s linear;
   }
   
-  .like-icon:not(:hover) .core{
+  .like-icon:not(:hover) .core {
     fill: none;
     transition: fill 0.3s linear 0.03s;
   }
   
-  .like-icon:hover .main-body{
+  .like-icon:hover .main-body {
     fill: black;
     transition: fill 0.3s linear 0.05s;
   }
   
-  .like-icon:not(:hover) .main-body{
+  .like-icon:not(:hover) .main-body {
     fill: none;
     transition: fill 0.3s linear;
   }
@@ -53,7 +53,7 @@
     transition: fill 0.3s linear;
   }
   
-  .like-icon:active .main-body{
+  .like-icon:active .main-body {
     fill: red;
     transition: fill 0.3s linear 0.05s;
   }
@@ -87,6 +87,7 @@
   }
   
   @keyframes bounce {
+    
     0% { 
         transform: scale(1);
     }

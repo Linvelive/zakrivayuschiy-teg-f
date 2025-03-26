@@ -11,103 +11,94 @@
 */
 
 .like-icon {
-    transition: transform 0.3s linear;
-  }
+  transition: transform 0.3s linear;
+}
 
-  .contour {
-    transition: fill 0.1s linear;
-  }
-  
-  .core {
+.contour {
+  transition: fill 0.1s linear;
+}
+
+.core {
   fill: none;
   transition: fill 0.3s linear 0.03s;
-  } 
-  
-  .main-body {
-    fill: none;
-    transition: fill 0.3s linear;
-  }
-  
-  .like-icon:hover .core {
-    fill: black;
-    transition: fill 0.3s linear;
-  }
-  
-  .like-icon:not(:hover) .core {
-    fill: none;
-    transition: fill 0.3s linear 0.03s;
-  }
-  
-  .like-icon:hover .main-body {
-    fill: black;
-    transition: fill 0.3s linear 0.05s;
-  }
-  
-  .like-icon:not(:hover) .main-body {
-    fill: none;
-    transition: fill 0.3s linear;
-  }
-  
-  .like-icon:active .core {
-    fill: red;
-    transition: fill 0.3s linear;
-  }
-  
-  .like-icon:active .main-body {
-    fill: red;
-    transition: fill 0.3s linear 0.05s;
-  }
-  
-  .like-icon.is-liked .core {
-    fill: red;
-    transition: fill 0.3s linear;
-  }
-  
-  .like-icon.is-liked .main-body {
-    fill: red;
-  transition: fill 0.3s linear 0.5s;
-  }
-  
-  .like-icon.is-liked .contour {
+}
+
+.main-body {
+  fill: none;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .core {
+  fill: black;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:not(:hover) .core {
+  fill: none;
+  transition: fill 0.3s linear 0.03s;
+}
+
+.like-icon:hover .main-body {
+  fill: black;
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon:not(:hover) .main-body {
+  fill: none;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .core {
   fill: red;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: red;
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--sparks-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--sparks-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--sparks-color);
   transition: fill 0.3s linear 0.06s;
+}
+
+.like-icon.is-liked .heart {
+  animation: bounce 0.3s ease-in 0.1s;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparkFade 0.3s ease-in 0.3s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
   }
-  
-  .like-icon.is-liked {
-    animation: bouce 0.5s linear;
+  100% {
+    transform: scale(1.25);
   }
-  
-  .sparks {
+}
+
+@keyframes sparkFade {
+  0% {
     opacity: 0;
   }
-  
-  .like-icon.is-liked .sparks {
-    /* opacity: 1; */
-    animation: sparkFade 0.6s linear 0.3s;
+  100% {
+    opacity: 1;
   }
-  
-  @keyframes bounce {
-
-    0% { 
-        
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
-  }
-  
-  @keyframes sparkFade {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-  }
+}

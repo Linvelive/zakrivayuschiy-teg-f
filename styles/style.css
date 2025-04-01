@@ -53,7 +53,7 @@
 
 .header-title {
   font-size: clamp(49px, calc(49px + 16 * ((100vw - 375px) / 325)), 65px);
-  font-weight: 400;
+  font-variation-settings: "wght" 700;
 }
 
 .header-subtitle {
@@ -99,7 +99,6 @@
   flex-direction: column;
   width: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
   max-width: 700px;
-  height: fit-content;
   background-color: #fff;
   border: 2px solid #000;
 }
@@ -112,7 +111,7 @@
   font-size: 14px;
   mix-blend-mode: hard-light;
   opacity: 50%;
-  top: 30px;
+  top: 28px;
   right: 25px;
 }
 
@@ -135,13 +134,9 @@
   display: flex;
   flex-direction: column;
   gap: 27px;
-  padding: 27px 25px 18px 25px;
+  padding: 25px 25px 18px 25px;
   font-size: 18px;
   line-height: 21px;
-}
-
-.cards-text {
-  overflow-wrap: break-word;
 }
 
 .buttons {
@@ -162,6 +157,7 @@
   height: 36px;
   padding: 0;
   align-self: center;
+  justify-self: center;
   cursor: pointer;
   transition: border-color 0.3s ease;
 }
@@ -223,13 +219,18 @@
   z-index: -1;
 }
 
-.cards-image img {
-  width: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
-  display: block;
-}
-
 .cards-image {
   position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-block: 2px solid #000;
+}
+
+.cards-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .card__like-button {
@@ -316,7 +317,7 @@
   }
 }
 
-@media (width<=768px) {
+@media (width<1440px) {
   .page {
     width: 100%;
     max-width: 100;
@@ -336,11 +337,12 @@
   .cards-image {
     width: 100%;
     max-width: 100%;
+    border: none;
   }
 
   .cards-text-content {
-    padding: 25px 25px 0px 25px;
-    margin-block-end: 20 px;
+    padding: 27px 25px 0px 25px;
+    margin-block-end: 20px;
   }
 
   .cards-text {
@@ -350,16 +352,17 @@
   .watermark,
   .watermark-lowcase {
     right: 10px;
-    top: 26px;
+    top: 22px;
     font-size: 14px;
   }
 
   .buttons {
-    margin-top: 25px;
+    padding-top: 6px;
+    /* margin-bottom: 24px; */
   }
 
   .save-button {
-    margin-block: 35px;
+    margin-block: 50px;
     flex-direction: column;
     padding: 15px;
     padding-left: 20px;
@@ -371,5 +374,25 @@
   .floppy-button {
     width: 28px;
     height: 28px;
+  }
+
+  .dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dialog-content {
+    display: flex;
+    justify-content: center;
+    padding-right: 0px;
+    padding-left: 24px;
+  }
+
+  .dialog-button {
+    margin-left: 0px;
+    margin-right: 0px;
+    /* z-index: 10; */
   }
 }
